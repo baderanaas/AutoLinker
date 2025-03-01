@@ -206,17 +206,10 @@ def autoLinker(url, message, note, premium=True):
                                 xpath="//div[@role='textbox' and @aria-label='Write a message…']",
                                 text=message,
                             ):
-                                send_button = WebDriverWait(driver, 10).until(
-                                    EC.element_to_be_clickable(
-                                        (
-                                            By.XPATH,
-                                            "//button[contains(@class, 'msg-form__send-button') and text()='Send']",
-                                        )
-                                    )
+                                send_message = _buttonXPATH(
+                                    driver,
+                                    "//button[contains(@class, 'msg-form__send-button') and text()='Send']",
                                 )
-                                # send_button.click()
-                                # send_message = _buttonXPATH(driver, "//button[contains(@class, 'msg-form__send-button') and text()='Send']")
-                                send_message = True
 
                             _buttonXPATH(
                                 driver,
@@ -240,13 +233,10 @@ def autoLinker(url, message, note, premium=True):
                         _inputTextXPATH(
                             driver, xpath="//textarea[@id='custom-message']", text=note
                         )
-                        send_invitation_button = WebDriverWait(driver, 10).until(
-                            EC.element_to_be_clickable(
-                                (By.XPATH, "//button[@aria-label='Send invitation']")
-                            )
+
+                        send_message = _buttonXPATH(
+                            driver, "//button[@aria-label='Send invitation']"
                         )
-                        # send_invitation_button.click()
-                        # _buttonXPATH(driver, "//button[@aria-label='Send invitation']")
 
                     if profile_name == "LinkedIn Member" or profile_name == "FAILED":
                         break
