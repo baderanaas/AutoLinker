@@ -1,0 +1,5 @@
+selenium
+beautifulsoup4
+undetected-chromedriver
+python-dotenv
+pandas
